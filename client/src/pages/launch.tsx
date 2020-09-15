@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { gql, useQuery } from '@apollo/client';
 
+import { LAUNCH_TILE_DATA } from './launches';
 import { Loading, Header, LaunchDetail } from '../components';
 import { ActionButton } from '../containers';
 import { RouteComponentProps } from '@reach/router';
 import * as LaunchDetailsTypes from './__generated__/LaunchDetails';
-import { LAUNCH_TILE_DATA } from './launches';
 
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
@@ -20,7 +20,6 @@ export const GET_LAUNCH_DETAILS = gql`
   ${LAUNCH_TILE_DATA}
 `;
 
-
 interface LaunchProps extends RouteComponentProps {
   launchId?: any;
 }
@@ -29,7 +28,7 @@ const Launch: React.FC<LaunchProps> = ({ launchId }) => {
   const {
     data,
     loading,
-    error
+    error,
   } = useQuery<
     LaunchDetailsTypes.LaunchDetails,
     LaunchDetailsTypes.LaunchDetailsVariables
