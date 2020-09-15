@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "name": "apollogize",
+  "workspaces": ["packages/*", "client", "server"],
+  "private": true
+}
